@@ -29,13 +29,21 @@ def ejercicio1():
         
         return render_template('ejercicio1.html', resultado=resultado)
     
-    # Si es GET, solo mostrar el formulario vacío
     return render_template('ejercicio1.html')
 
-@app.route('/ejercicio2')
+@app.route('/ejercicio2' , methods=['GET', 'POST'])
 def ejercicio2():
-    return render_template('ejercicio2.html')
+    if request.method == 'POST':
+        name1 = request.form.get('name1')
+        name2 = request.form.get('name2')
+        name3 = request.form.get('name3')
 
+        resultado = max(name1, name2, name3, key=len)
+        flash(f'El nombre con más caracteres es: {resultado}', 'success')
+
+        return render_template('ejercicio2.html', resultado=resultado)
+
+    return render_template('ejercicio2.html')
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)
