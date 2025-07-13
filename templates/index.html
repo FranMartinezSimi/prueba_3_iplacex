@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+            {% block content %}
+
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center">
+                        <button type="button" class="btn btn-primary btn-lg px-5 py-3" onclick="location.href='{{ url_for('ejercicio1') }}'">
+                            Ejercicio 1
+                        </button>
+                    </div>
+                </div>
+                <div class="row justify-content-center mt-4">
+                    <div class="col-md-6 text-center">
+                        <button type="button" class="btn btn-primary btn-lg px-5 py-3" onclick="location.href='{{ url_for('ejercicio2') }}'">
+                            Ejercicio 2
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
